@@ -4,7 +4,27 @@ from ..db import db
 
 planet_bp = Blueprint("planet_bp", __name__, url_prefix="/planets")
 
+@planet_bp.post("")
+def create_planet():
+    request_body = request.get_json()
+    name = request_body["name"]
+    description = request_body["description"]
+    num_of_moons = request_body["num_of_moons"]
 
+    new_planet = Planet(name=name, description=description, num_of_moons=num_of_moons)
+    db.session.add(new_planet)
+    db.session.commit()
+
+    response = new_planet.to_dict()
+    return response, 201
+
+@planet_bp.get("")
+def get_all_planets():
+    query = db.select(Planet).order_by(Planet.id)
+    planets = db.session.scalars(query)
+
+    planets_response = [planet.to_dict() for planet in planets]
+    return planets_response
 
 # @planet_bp.get("")
 # def get_all_planets():
