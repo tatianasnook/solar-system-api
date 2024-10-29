@@ -15,21 +15,6 @@ class Planet(db.Model):
             num_of_moons=self.num_of_moons
         )
 
-# class Planet:
-    # def __init__(self, id, name, description, num_of_moons):
-    #     self.id = id
-    #     self.name = name
-    #     self.description = description
-    #     self.num_of_moons = num_of_moons
-
-    # def to_dict(self):
-    #     return dict(
-    #         id=self.id,
-    #         name=self.name,
-    #         description=self.description,
-    #         num_of_moons=self.num_of_moons
-    #     )
-
 # planets = [
 #     Planet(1, "Mercury", "smallest planet in Solar system", 0),
 #     Planet(2, "Venus", "Earth neighbor", 0),
