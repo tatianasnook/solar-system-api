@@ -20,7 +20,6 @@ def create_planet():
 
 @planet_bp.get("")
 def get_all_planets():
-
     query = db.select(Planet)
 
     name_param = request.args.get("name")
@@ -44,15 +43,12 @@ def get_all_planets():
 
 @planet_bp.get("/<planet_id>")
 def get_one_planet(planet_id):
-
     planet = validate_planet(planet_id)
-
     return planet.to_dict()
 
 
 @planet_bp.put("/<planet_id>")
 def update_planet(planet_id):
-
     planet = validate_planet(planet_id)
     request_body = request.get_json()
 
@@ -67,9 +63,7 @@ def update_planet(planet_id):
 
 @planet_bp.delete("/<planet_id>")
 def delete_planet(planet_id):
-
     planet = validate_planet(planet_id)
-
     db.session.delete(planet)
     db.session.commit()
 

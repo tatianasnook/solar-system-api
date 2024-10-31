@@ -14,4 +14,3 @@ class Planet(db.Model):
             description=self.description,
             num_of_moons=self.num_of_moons
         )
-
