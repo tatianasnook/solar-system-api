@@ -16,7 +16,7 @@ def test_get_one_planet_not_found_in_empty_db(client):
     response_body = response.get_json()
 
     assert response.status_code == 404
-    assert response_body == {"message": f"planet 1 not found"}
+    assert response_body == {"message": f"Planet 1 not found"}
 
 
 def test_get_one_planet_not_found_with_planets_in_db(client, two_saved_planets):
